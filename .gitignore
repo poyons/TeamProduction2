@@ -107,3 +107,11 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+/flappyBird_ Prototype/[Ll]ibrary/
+/flappyBird_ Prototype/[Tt]emp/
+/flappyBird_ Prototype/[Oo]bj/
+/flappyBird_ Prototype/[Bb]uild/
+/flappyBird_ Prototype/[Bb]uilds/
+/flappyBird_ Prototype/[Ll]ogs/
+/flappyBird_ Prototype/[Uu]ser[Ss]ettings/
