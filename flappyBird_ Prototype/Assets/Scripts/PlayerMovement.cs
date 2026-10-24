@@ -5,8 +5,14 @@ public class PlayerMovement : MonoBehaviour
 {
     public Vector3 velocity;
     public PlayerInput input;
-    [SerializeField] private float VerticalSpeed = 15f;
+    private float VerticalSpeed ;
     [SerializeField] private float HorizontalSpeed = 5.0f;
+    public int jumpPower=5;
+
+    public Vector2 playerPosition;
+    public Vector2 generatePlayerPosition;
+    [SerializeField] PipeGenerate _pipeGenerate;
+    [SerializeField] BackGroundGenerate backGroundGenerate;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,17 +22,28 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        playerPosition = transform.position;
         transform.Translate(velocity* Time.deltaTime);
         velocity = new Vector3(HorizontalSpeed,VerticalSpeed,0);
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            VerticalSpeed = 15f;
+            VerticalSpeed = jumpPower;
         }
         VerticalSpeed += Physics.gravity.y * Time.deltaTime;
-        if(VerticalSpeed<-40f)
+        if(VerticalSpeed<-6f)
         {
-            VerticalSpeed = -40f;
+            VerticalSpeed = -6f;
+        }
+        pipeGenerate();
+    }
+
+    //“yŠÇ‚Ì¶¬Ý’è
+    public void pipeGenerate()
+    {
+        if (playerPosition.x >= generatePlayerPosition.x)
+        {
+            generatePlayerPosition.x += 5;
+            _pipeGenerate.Generate();
         }
     }
 }
